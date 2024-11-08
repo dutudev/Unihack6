@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -25,4 +26,15 @@ public class GameManager : MonoBehaviour
     {
         
     }
-}
+
+   /* bool Check()
+    {
+        currentBlock = new Block();
+
+    }*/
+}/*
+public class Block
+{
+    GameObject obj;
+    public Vector3 pos;
+}*/
