@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,5 +25,26 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Structure currentStructure;
+    public Block currentBlock;
+
+    void Check()
+    {
+        int i, j;
+        int inFrame = 0, required = currentStructure.coords.Length, placed = currentBlock.pos.Length;
+        for (i = 0; i < required; i++)
+        {
+            for (j = 0; j < placed; j++)
+            {
+                if (currentBlock.pos[j] == currentStructure.coords[i])
+                {
+                    inFrame++;
+                    j = placed;
+                }
+            }
+        }
+        int outFrame = required - placed;
     }
 }
