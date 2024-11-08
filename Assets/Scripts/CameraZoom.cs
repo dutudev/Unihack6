@@ -17,6 +17,11 @@ public class CameraZoom : MonoBehaviour
 
     private Vector3 previousPos;
 
+    public float distance = 10.0f;
+    public float rotationSpeed = 5.0f;
+
+    private float currentX = 0.0f;
+    private float currentY = 0.0f;
     private void Awake()
     {
         cam.transform.position = new Vector3(0, 4, -10);
@@ -41,14 +46,29 @@ public class CameraZoom : MonoBehaviour
         Zoom();
         OrbitAround();
     }
-    private void OrbitAround() { 
-        if(UnityEngine.Input.GetKey(KeyCode.Mouse1))
+    private void OrbitAround() {
+
+        if (Input.GetMouseButton(1))
         {
-            cam.ScreenToViewportPoint(UnityEngine.Input.mousePosition);
+            currentX += Input.GetAxis("Mouse X") * rotationSpeed;
+            currentY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+
+            currentY = Mathf.Clamp(currentY, -85, 85);
         }
-        if (UnityEngine.Input.GetKey(KeyCode.Mouse1))
+        
+        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        
+        Vector3 offset = rotation * Vector3.back * distance;
+        transform.position = target.position + offset;
+        transform.LookAt(target);
+        /*
+        if(Input.GetKey(KeyCode.Mouse1))
         {
-            Vector3 direction=previousPos-cam.ScreenToViewportPoint(UnityEngine.Input.mousePosition);
+            cam.ScreenToViewportPoint(Input.mousePosition);
+        }
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            Vector3 direction=previousPos-cam.ScreenToViewportPoint(Input.mousePosition);
 
             cam.transform.RotateAround(target.position, Vector3.up, -direction.x * 180);
             cam.transform.RotateAround(target.position, cam.transform.right, direction.y * 180);
@@ -59,12 +79,12 @@ public class CameraZoom : MonoBehaviour
             //cam.transform.Rotate(new Vector3(0,1,0),-direction.x*180,Space.World);
             //cam.transform.Translate(new Vector3(0,0,-10));
 
-            previousPos = cam.ScreenToViewportPoint(UnityEngine.Input.mousePosition);
-        }
+            previousPos = cam.ScreenToViewportPoint(Input.mousePosition);
+        }*/
     }
     private void Zoom()
     {
-        fov -= UnityEngine.Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        fov -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         fov = Mathf.Clamp(fov, minFov, maxFov);
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, Time.deltaTime * zoomSpeed);
     }
