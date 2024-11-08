@@ -7,8 +7,9 @@ public class BuildSystem : MonoBehaviour
 {
     public Vector3 cursorPosition, placeholderPosition;
     public Camera camera;
-
-    public GameObject buildPlaceholder;
+    public float buildCooldown;
+    public GameObject buildPlaceholder, buildGameObject;
+    public bool removeMode;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,6 @@ public class BuildSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        mousePositionOnScreen = Input.mousePosition;
-        cursorPosition = camera.ScreenToWorldPoint(new Vector3(mousePositionOnScreen.x, mousePositionOnScreen.y, mousePositionOnScreen.z));*/
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -31,9 +29,29 @@ public class BuildSystem : MonoBehaviour
 
         placeholderPosition.x = Mathf.Round(cursorPosition.x);
         //replace
-        placeholderPosition.y = 1;
+        placeholderPosition.y = Mathf.Ceil(cursorPosition.y + 0.1f);
         placeholderPosition.z = Mathf.Round(cursorPosition.z);
-        buildPlaceholder.GetComponent<Transform>().position = placeholderPosition;
+        if (!removeMode)
+        {
+            buildPlaceholder.SetActive(true);
+            buildPlaceholder.GetComponent<Transform>().position = placeholderPosition;
+        }
+        else
+        {
+            buildPlaceholder.SetActive(false);
+        }
+
+        if (Input.GetAxisRaw("Fire1") == 1 && buildCooldown <= 0f)
+        {
+            Instantiate(buildGameObject, buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
+            buildCooldown = 0.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            removeMode = !removeMode;
+        }
+        buildCooldown -= Time.deltaTime;
     }
     
 }
