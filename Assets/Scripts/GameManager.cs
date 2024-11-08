@@ -27,14 +27,24 @@ public class GameManager : MonoBehaviour
         
     }
 
-   /* bool Check()
-    {
-        currentBlock = new Block();
+    public Structure currentStructure;
+    public Block currentBlock;
 
-    }*/
-}/*
-public class Block
-{
-    GameObject obj;
-    public Vector3 pos;
-}*/
+    void Check()
+    {
+        int i, j;
+        int inFrame = 0, required = currentStructure.coords.Length, placed = currentBlock.pos.Length;
+        for (i = 0; i < required; i++)
+        {
+            for (j = 0; j < placed; j++)
+            {
+                if (currentBlock.pos[j] == currentStructure.coords[i])
+                {
+                    inFrame++;
+                    j = placed;
+                }
+            }
+        }
+        int outFrame = required - placed;
+    }
+}

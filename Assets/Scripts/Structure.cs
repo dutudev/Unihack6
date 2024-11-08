@@ -7,6 +7,6 @@ public class Structure : ScriptableObject
 {
     // Start is called before the first frame update
 
-    public Vector3[] points;
+    public Vector3[] coords;
 
 }
