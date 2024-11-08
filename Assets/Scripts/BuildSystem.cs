@@ -8,8 +8,9 @@ public class BuildSystem : MonoBehaviour
     public Vector3 cursorPosition, placeholderPosition;
     public Camera camera;
     public float buildCooldown;
-    public GameObject buildPlaceholder, buildGameObject;
+    public GameObject buildPlaceholder, buildGameObject, PreviousRemoveGameObject;
     public bool removeMode;
+    public Material defaultMaterial, redMaterial;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,22 @@ public class BuildSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            cursorPosition = hit.point;
+            if (!removeMode)
+            {
+                cursorPosition = hit.point;
+            }
+            else
+            {
+                if (hit.collider.gameObject.CompareTag("Placed"))
+                {
+                    hit.collider.gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+                    if (hit.collider.gameObject != PreviousRemoveGameObject && PreviousRemoveGameObject != null)
+                    {
+                        PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                    }
+                    PreviousRemoveGameObject = hit.collider.gameObject;
+                }
+            }
         }
 
         placeholderPosition.x = Mathf.Round(cursorPosition.x);
