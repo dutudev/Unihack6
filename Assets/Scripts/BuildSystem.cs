@@ -32,13 +32,19 @@ public class BuildSystem : MonoBehaviour
             else
             {
                 if (hit.collider.gameObject.CompareTag("Placed"))
-                {
+                { 
                     hit.collider.gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+                    hit.collider.gameObject.name = "CurrentRemove";
                     if (hit.collider.gameObject != PreviousRemoveGameObject && PreviousRemoveGameObject != null)
                     {
                         PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                        PreviousRemoveGameObject.name = "cube(Clone)";
                     }
                     PreviousRemoveGameObject = hit.collider.gameObject;
+                }else if (PreviousRemoveGameObject != null)
+                {
+                    PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                    PreviousRemoveGameObject.name = "cube(Clone)";
                 }
             }
         }
@@ -57,15 +63,34 @@ public class BuildSystem : MonoBehaviour
             buildPlaceholder.SetActive(false);
         }
 
-        if (Input.GetAxisRaw("Fire1") == 1 && buildCooldown <= 0f)
+        if (Input.GetAxisRaw("Fire1") == 1 && buildCooldown <= 0f && !removeMode)
         {
             Instantiate(buildGameObject, buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
             buildCooldown = 0.5f;
         }
 
+        if (PreviousRemoveGameObject != null)
+        {
+            Debug.Log(PreviousRemoveGameObject.GetComponent<MeshRenderer>().material);
+        }
+
+        if (PreviousRemoveGameObject != null)
+        {
+            if (Input.GetAxisRaw("Fire1") == 1 && removeMode && PreviousRemoveGameObject.name == "CurrentRemove")
+            {
+                Destroy(PreviousRemoveGameObject);
+                PreviousRemoveGameObject = null;
+            }  
+        }
+        
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             removeMode = !removeMode;
+            if (PreviousRemoveGameObject != null)
+            {
+                PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+            }
         }
         buildCooldown -= Time.deltaTime;
     }

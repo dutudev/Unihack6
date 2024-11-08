@@ -1961,6 +1961,10 @@ MonoBehaviour:
   buildCooldown: 0
   buildPlaceholder: {fileID: 1011416593}
   buildGameObject: {fileID: 567436978794967853, guid: 58bb09961ec637b4f8597748e69555b6, type: 3}
+  PreviousRemoveGameObject: {fileID: 0}
+  removeMode: 0
+  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  redMaterial: {fileID: 2100000, guid: 39b808fab7acaea4597f41ddbab0afba, type: 2}
 --- !u!81 &410799872
 AudioListener:
   m_ObjectHideFlags: 0
