@@ -8,7 +8,7 @@ public class BuildSystem : MonoBehaviour
 {
     public Vector3 cursorPosition, placeholderPosition;
     public Camera camera;
-    public float buildCooldown, removeCooldown;
+    public float buildCooldown, removeCooldown, stateCooldown;
     public GameObject buildPlaceholder, PreviousRemoveGameObject;
     public GameObject[] buildGameObject, PlaceholderGameObject;
     public bool removeMode;
@@ -16,6 +16,7 @@ public class BuildSystem : MonoBehaviour
     public Type currnentShape = Type.cube;
     public Image shapeImage;
     public Sprite cubeSprite, pyramideSprite, cylinderSprite, binSprite;
+    public int gameState; // 0 - watch, 1 - build, 2 - pause
     // Start is called before the first frame update
     void Start()
     {
@@ -93,8 +94,8 @@ public class BuildSystem : MonoBehaviour
                      break;
             }
             
-            GameManager.Instance.placedblocks.Add(new BlockStructure(block.GetComponent<Transform>().position, Type.cube));
-            block.GetComponent<Block>().block = new BlockStructure(block.GetComponent<Transform>().position, Type.cube);
+            GameManager.Instance.placedblocks.Add(new BlockStructure(block.GetComponent<Transform>().position, block.GetComponent<Block>().block.type));
+            block.GetComponent<Block>().block = new BlockStructure(buildPlaceholder.GetComponent<Transform>().position, block.GetComponent<Block>().block.type);
 
         }
 
