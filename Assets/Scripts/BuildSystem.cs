@@ -65,7 +65,8 @@ public class BuildSystem : MonoBehaviour
 
         if (Input.GetAxisRaw("Fire1") == 1 && buildCooldown <= 0f && !removeMode)
         {
-            Instantiate(buildGameObject, buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
+            var block = Instantiate(buildGameObject, buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
+            GameManager.Instance.placedblocks.Add(new BlockStructure(block.GetComponent<Transform>().position, Type.cube));
             buildCooldown = 0.5f;
         }
 

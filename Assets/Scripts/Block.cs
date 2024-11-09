@@ -4,5 +4,22 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public Vector3[] pos;
+    public BlockStructure[] block;
+}
+
+public class BlockStructure
+{
+    public Vector3 position;
+    public Type type;
+
+    public BlockStructure(Vector3 position, Type type)
+    {
+        this.position = position;
+        this.type = type;
+    }
+}
+
+public enum Type
+{
+    cube, cilinder, pyramid
 }
