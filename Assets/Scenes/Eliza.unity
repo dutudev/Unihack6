@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 40519197}
   - component: {fileID: 40519196}
   m_Layer: 5
-  m_Name: Pause_Text
+  m_Name: Exit_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pause
+  m_Text: Exit
 --- !u!222 &40519197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3800,6 +3800,7 @@ MonoBehaviour:
   newFontSize: 75
   waitingText: {fileID: 0}
   canvas: {fileID: 927237785}
+  pause: 0
 --- !u!1 &911970924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,7 +3921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &927237786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5389,7 +5390,7 @@ GameObject:
   - component: {fileID: 1200657278}
   - component: {fileID: 1200657277}
   m_Layer: 5
-  m_Name: ResumeButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5458,19 +5459,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1200657278}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 927237785}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1200657278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7282,7 +7271,7 @@ GameObject:
   - component: {fileID: 1579015034}
   - component: {fileID: 1579015033}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7351,7 +7340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579015034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 795695691}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: PauseTime
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
 --- !u!114 &1579015034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10382,8 +10383,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10391,7 +10392,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.2
 --- !u!222 &2138999454
 CanvasRenderer:
   m_ObjectHideFlags: 0
