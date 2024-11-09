@@ -33,15 +33,15 @@ public class GameManager : MonoBehaviour
 
     
 
-    void Check()
+   /* void Check()
     {
         int i, j;
-        int inFrame = 0, required = currentStructure.coords.Length, placed = currentBlock.Length;
+        int inFrame = 0, required = currentStructure.blocks.Length, placed = currentBlock.Length;
         for (i = 0; i < required; i++)
         {
             for (j = 0; j < placed; j++)
             {
-                if (currentBlock[j].position == currentStructure.coords[i])
+                if (currentBlock[j].position == currentStructure.blocks[i].position)
                 {
                     inFrame++;
                     j = placed;
@@ -49,7 +49,9 @@ public class GameManager : MonoBehaviour
             }
         }
         int outFrame = required - placed;
-    }
+    }*/
+
+    
 
     public void Pause(bool pause=false)
     {
@@ -67,4 +69,5 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(40);
     }
+
 }

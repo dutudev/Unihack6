@@ -9,7 +9,7 @@ public class BuildSystem : MonoBehaviour
     public Camera camera;
     public float buildCooldown, removeCooldown;
     public GameObject buildPlaceholder, PreviousRemoveGameObject;
-    public GameObject[] buildGameObject;
+    public GameObject[] buildGameObject, PlaceholderGameObject;
     public bool removeMode;
     public Material defaultMaterial, redMaterial;
     public Type currnentShape = Type.cube;
@@ -90,10 +90,6 @@ public class BuildSystem : MonoBehaviour
 
         }
 
-        if (PreviousRemoveGameObject != null)
-        {
-            Debug.Log(PreviousRemoveGameObject.GetComponent<MeshRenderer>().material);
-        }
 
         if (PreviousRemoveGameObject != null)
         {
@@ -110,16 +106,25 @@ public class BuildSystem : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             currnentShape = Type.cube;
+            PlaceholderGameObject[0].SetActive(true);
+            PlaceholderGameObject[1].SetActive(false);
+            PlaceholderGameObject[2].SetActive(false);
         }
 
         if (Input.GetKeyDown("2"))
         {
             currnentShape = Type.cilinder;
+            PlaceholderGameObject[0].SetActive(false);
+            PlaceholderGameObject[1].SetActive(true);
+            PlaceholderGameObject[2].SetActive(false);
         }
         
         if (Input.GetKeyDown("3"))
         {
             currnentShape = Type.pyramid;
+            PlaceholderGameObject[0].SetActive(false);
+            PlaceholderGameObject[1].SetActive(false);
+            PlaceholderGameObject[2].SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
