@@ -27,7 +27,8 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        PauseTime();
+        if (Input.GetKey(KeyCode.Escape))
+            PauseTime();
         if (pause == false)
         {
             if (currentTime < 0)
