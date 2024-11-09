@@ -70,32 +70,26 @@ public class BuildSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && buildCooldown <= 0f && !removeMode)
         {
-            LeanTween.cancelAll();
+            
             buildCooldown = 0.25f;
             var block = gameObject;
-            shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            
             switch (currnentShape)
             {
                 case Type.cube:
                     block = Instantiate(buildGameObject[0], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                     block.GetComponent<Block>().block.type = Type.cube;
-                    shapeImage.sprite = cubeSprite;
-                    LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
-                        .setEaseOutExpo();
+                    
                     break;
                 case Type.cilinder: 
                     block = Instantiate(buildGameObject[1], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                     block.GetComponent<Block>().block.type = Type.cilinder;
-                    shapeImage.sprite = cylinderSprite;
-                    LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
-                        .setEaseOutExpo();
+                    
                     break;
                 case Type.pyramid:
                      block = Instantiate(buildGameObject[2], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                      block.GetComponent<Block>().block.type = Type.pyramid;
-                     shapeImage.sprite = pyramideSprite;
-                     LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
-                         .setEaseOutExpo();
+                     
                      break;
             }
             
@@ -123,6 +117,15 @@ public class BuildSystem : MonoBehaviour
             PlaceholderGameObject[0].SetActive(true);
             PlaceholderGameObject[1].SetActive(false);
             PlaceholderGameObject[2].SetActive(false);
+            if (shapeImage.sprite != cubeSprite && !removeMode)
+            {
+                LeanTween.cancelAll();
+                shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                shapeImage.sprite = cubeSprite;
+                LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                    .setEaseOutExpo();
+            }
+            
         }
 
         if (Input.GetKeyDown("2"))
@@ -131,6 +134,14 @@ public class BuildSystem : MonoBehaviour
             PlaceholderGameObject[0].SetActive(false);
             PlaceholderGameObject[1].SetActive(true);
             PlaceholderGameObject[2].SetActive(false);
+            if (shapeImage.sprite != cylinderSprite && !removeMode)
+            {
+                LeanTween.cancelAll();
+                shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                shapeImage.sprite = cylinderSprite;
+                LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                    .setEaseOutExpo();
+            }
         }
         
         if (Input.GetKeyDown("3"))
@@ -139,6 +150,14 @@ public class BuildSystem : MonoBehaviour
             PlaceholderGameObject[0].SetActive(false);
             PlaceholderGameObject[1].SetActive(false);
             PlaceholderGameObject[2].SetActive(true);
+            if (shapeImage.sprite != pyramideSprite && !removeMode)
+            {
+                LeanTween.cancelAll();
+                shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                shapeImage.sprite = pyramideSprite;
+                LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                    .setEaseOutExpo();
+            }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
