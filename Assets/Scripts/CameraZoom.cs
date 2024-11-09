@@ -49,7 +49,7 @@ public class CameraZoom : MonoBehaviour
             currentX += Input.GetAxis("Mouse X") * rotationSpeed;
             currentY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            currentY = Mathf.Clamp(currentY, -90, 90);
+            currentY = Mathf.Clamp(currentY, -85, 85);
         }
         
         //rotirea se face doar pe 2 axe

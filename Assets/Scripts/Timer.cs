@@ -73,7 +73,7 @@ public class Timer : MonoBehaviour
             canvas.SetActive(true);
             pause = true;
         }
-        if (Input.GetKey(KeyCode.Escape) || pause == true)
+        if (Input.GetKey(KeyCode.Escape) && pause == true)
         {
             Time.timeScale = 1;
             canvas.SetActive(false);
