@@ -65,9 +65,11 @@ public class BuildSystem : MonoBehaviour
 
         if (Input.GetAxisRaw("Fire1") == 1 && buildCooldown <= 0f && !removeMode)
         {
+            buildCooldown = 0.5f;
             var block = Instantiate(buildGameObject, buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
             GameManager.Instance.placedblocks.Add(new BlockStructure(block.GetComponent<Transform>().position, Type.cube));
-            buildCooldown = 0.5f;
+            block.GetComponent<Block>().block = new BlockStructure(block.GetComponent<Transform>().position, Type.cube);
+
         }
 
         if (PreviousRemoveGameObject != null)
@@ -80,6 +82,12 @@ public class BuildSystem : MonoBehaviour
             if (Input.GetAxisRaw("Fire1") == 1 && removeMode && PreviousRemoveGameObject.name == "CurrentRemove" && removeCooldown <= 0)
             {
                 removeCooldown = .2f;
+                if (GameManager.Instance.placedblocks.Contains(PreviousRemoveGameObject.GetComponent<Block>().block))
+                {
+                    Debug.Log("ok");
+                }
+                Debug.Log(PreviousRemoveGameObject.GetComponent<Block>().block.type);
+                GameManager.Instance.placedblocks.Remove(PreviousRemoveGameObject.GetComponent<Block>().block);
                 Destroy(PreviousRemoveGameObject);
                 PreviousRemoveGameObject = null;
             }  

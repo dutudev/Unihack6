@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public BlockStructure[] block;
+    public BlockStructure block;
 }
-
+[System.Serializable]
 public class BlockStructure
 {
     public Vector3 position;
@@ -16,6 +16,15 @@ public class BlockStructure
     {
         this.position = position;
         this.type = type;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is BlockStructure other)
+        {
+            return position == other.position && type == other.type;
+        }
+        return false;
     }
 }
 
