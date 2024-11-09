@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
     public Structure currentStructure;
+    public Structure[] structures;
     public BlockStructure[] currentBlock;
     public List<BlockStructure> placedblocks = new List<BlockStructure>();
     // Start is called before the first frame update
@@ -29,6 +30,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void CreateStructure()
+    {
+        
     }
 
     
