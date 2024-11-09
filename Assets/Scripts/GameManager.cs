@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
+    public Structure currentStructure;
+    public BlockStructure[] currentBlock;
+    public List<BlockStructure> placedblocks = new List<BlockStructure>();
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +30,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public Structure currentStructure;
-    public Block currentBlock;
+    
 
     void Check()
     {
         int i, j;
-        int inFrame = 0, required = currentStructure.coords.Length, placed = currentBlock.pos.Length;
+        int inFrame = 0, required = currentStructure.coords.Length, placed = currentBlock.Length;
         for (i = 0; i < required; i++)
         {
             for (j = 0; j < placed; j++)
             {
-                if (currentBlock.pos[j] == currentStructure.coords[i])
+                if (currentBlock[j].position == currentStructure.coords[i])
                 {
                     inFrame++;
                     j = placed;
