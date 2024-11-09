@@ -7,7 +7,7 @@ public class BuildSystem : MonoBehaviour
 {
     public Vector3 cursorPosition, placeholderPosition;
     public Camera camera;
-    public float buildCooldown;
+    public float buildCooldown, removeCooldown;
     public GameObject buildPlaceholder, buildGameObject, PreviousRemoveGameObject;
     public bool removeMode;
     public Material defaultMaterial, redMaterial;
@@ -76,8 +76,9 @@ public class BuildSystem : MonoBehaviour
 
         if (PreviousRemoveGameObject != null)
         {
-            if (Input.GetAxisRaw("Fire1") == 1 && removeMode && PreviousRemoveGameObject.name == "CurrentRemove")
+            if (Input.GetAxisRaw("Fire1") == 1 && removeMode && PreviousRemoveGameObject.name == "CurrentRemove" && removeCooldown <= 0)
             {
+                removeCooldown = .2f;
                 Destroy(PreviousRemoveGameObject);
                 PreviousRemoveGameObject = null;
             }  
@@ -93,6 +94,7 @@ public class BuildSystem : MonoBehaviour
             }
         }
         buildCooldown -= Time.deltaTime;
+        removeCooldown -= Time.deltaTime;
     }
     
 }

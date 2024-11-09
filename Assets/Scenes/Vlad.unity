@@ -1936,6 +1936,7 @@ GameObject:
   - component: {fileID: 410799873}
   - component: {fileID: 410799872}
   - component: {fileID: 410799871}
+  - component: {fileID: 410799875}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1959,6 +1960,7 @@ MonoBehaviour:
   placeholderPosition: {x: 0, y: 0, z: 0}
   camera: {fileID: 410799873}
   buildCooldown: 0
+  removeCooldown: 0
   buildPlaceholder: {fileID: 1011416593}
   buildGameObject: {fileID: 567436978794967853, guid: 58bb09961ec637b4f8597748e69555b6, type: 3}
   PreviousRemoveGameObject: {fileID: 0}
@@ -2039,6 +2041,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 21, y: 0, z: 0}
+--- !u!114 &410799875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410799870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa26f26613411094f9c4d18501bd4e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 410799873}
+  target: {fileID: 388091729}
+  zoomSpeed: 15
+  distance: 10
+  rotationSpeed: 5
 --- !u!1 &468577933
 GameObject:
   m_ObjectHideFlags: 0
