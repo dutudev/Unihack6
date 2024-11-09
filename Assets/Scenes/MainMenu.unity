@@ -206,17 +206,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 789515554}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 680889684}
+        m_TargetAssemblyTypeName: MainSettings, Assembly-CSharp
+        m_MethodName: ShowSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &14953924
 MonoBehaviour:
@@ -3664,6 +3664,7 @@ GameObject:
   - component: {fileID: 680889682}
   - component: {fileID: 680889681}
   - component: {fileID: 680889680}
+  - component: {fileID: 680889684}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3759,6 +3760,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &680889684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680889679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585acc607eb21794b8e8ff46fe70dcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderVolume: {fileID: 789515556}
+  bgSound: {fileID: 598483872}
+  settingsShow: {fileID: 789515554}
 --- !u!1 &704760190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4048,7 +4064,6 @@ GameObject:
   m_Component:
   - component: {fileID: 789515555}
   - component: {fileID: 789515556}
-  - component: {fileID: 789515557}
   m_Layer: 5
   m_Name: Slider_Volume
   m_TagString: Untagged
@@ -4128,34 +4143,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 789515557}
-        m_TargetAssemblyTypeName: MainSettings, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &789515557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789515554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585acc607eb21794b8e8ff46fe70dcb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderVolume: {fileID: 789515556}
-  bgSound: {fileID: 598483872}
-  settingsShow: {fileID: 0}
+      m_Calls: []
 --- !u!1 &793231845
 GameObject:
   m_ObjectHideFlags: 0
