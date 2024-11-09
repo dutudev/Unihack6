@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -9,20 +10,24 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] float newFontSize = 75f;
     [SerializeField] TextMeshProUGUI waitingText;
+    [SerializeField] GameObject canvas;
 
     float currentTime = 0f;
     float startingTime = 30f;
-    bool pause = false;
+    private bool pause=false;
     float waitingTime = 10f;
 
 
    void Start()
     {
         currentTime = startingTime;
+        canvas.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void Update()
     {
+        PauseTime();
         if (pause == false)
         {
             if (currentTime < 0)
@@ -56,5 +61,22 @@ public class Timer : MonoBehaviour
                 waitingTime -= Time.deltaTime;
             }
         }
+    }
+
+    public void PauseTime(bool pause=false)
+    {
+        if (Input.GetKey(KeyCode.Escape) && pause == false)
+        {
+            Debug.Log("pressed");
+            Time.timeScale = 0;
+            canvas.SetActive(true);
+            pause = true;
+        }
+        if (Input.GetKey(KeyCode.Escape) || pause == true)
+        {
+            Time.timeScale = 1;
+            canvas.SetActive(false);
+        }
+        Debug.Log(pause);
     }
 }
