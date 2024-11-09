@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3134,11 +3134,16 @@ MonoBehaviour:
   buildCooldown: 0
   removeCooldown: 0
   buildPlaceholder: {fileID: 2091895223}
-  buildGameObject: {fileID: 567436978794967853, guid: 58bb09961ec637b4f8597748e69555b6, type: 3}
   PreviousRemoveGameObject: {fileID: 0}
+  buildGameObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlaceholderGameObject: []
   removeMode: 0
   defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   redMaterial: {fileID: 2100000, guid: 39b808fab7acaea4597f41ddbab0afba, type: 2}
+  currnentShape: 0
 --- !u!81 &590329033
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8450,8 +8455,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStructure: {fileID: 0}
+  structures: []
   currentBlock: []
   placedblocks: []
+  PrefabsObjects: []
+  currentObj: {fileID: 0}
 --- !u!4 &1897933394
 Transform:
   m_ObjectHideFlags: 0
