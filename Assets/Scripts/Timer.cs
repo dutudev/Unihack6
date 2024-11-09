@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
 
     float currentTime = 0f;
     float startingTime = 30f;
-    private bool pause=false;
+    public bool pause=false;
     float waitingTime = 10f;
 
 
@@ -27,8 +27,8 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-            PauseTime();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        { PauseTime(pause); }
         if (pause == false)
         {
             if (currentTime < 0)
@@ -64,20 +64,18 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void PauseTime(bool pause=false)
+    public void PauseTime( bool pause)
     {
-        if (Input.GetKey(KeyCode.Escape) && pause == false)
+        if (pause == false)
         {
-            Debug.Log("pressed");
             Time.timeScale = 0;
             canvas.SetActive(true);
             pause = true;
         }
-        if (Input.GetKey(KeyCode.Escape) && pause == true)
+        else //if ( pause == true)
         {
             Time.timeScale = 1;
             canvas.SetActive(false);
         }
-        Debug.Log(pause);
     }
 }
