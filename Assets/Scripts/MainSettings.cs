@@ -15,12 +15,15 @@ public class MainSettings : MonoBehaviour
     {
         sliderVolume.value=0.5f;
         bgSound.Play();
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            sliderVolume.value = PlayerPrefs.GetFloat("musicVolume");
-        }
-        else sliderVolume.value = PlayerPrefs.GetFloat("musicVolume");
+        //if (!PlayerPrefs.HasKey("musicVolume"))
+        //{
+        //    PlayerPrefs.SetFloat("musicVolume", 1);
+        //    sliderVolume.value = PlayerPrefs.GetFloat("musicVolume");
+        //}
+        //else sliderVolume.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+    void Update() { 
+        ChangeVolume();
     }
     public void ShowSettings()
     {
@@ -36,6 +39,6 @@ public class MainSettings : MonoBehaviour
     }
     public void ChangeVolume()
     {
-        AudioListener.volume = sliderVolume.value;
+        bgSound.volume = sliderVolume.value;
     }
 }
