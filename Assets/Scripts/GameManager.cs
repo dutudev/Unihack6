@@ -22,12 +22,14 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        pauseButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(ITimer());
+        Pause(default);
     }
 
     
@@ -48,5 +50,23 @@ public class GameManager : MonoBehaviour
             }
         }
         int outFrame = required - placed;
+    }
+
+    public void Pause(bool pause=false)
+    {
+        pauseButton.SetActive(true);
+        if(Input.GetKey(KeyCode.Escape) && pause==false)
+        {
+            Time.timeScale = 0;
+            pause = true;
+        }
+        if (Input.GetKey(KeyCode.Escape) && pause == true)
+        {
+            Time.timeScale = 1;
+        }
+    }
+    IEnumerator ITimer()
+    {
+        yield return new WaitForSecondsRealtime(40);
     }
 }
