@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        pauseButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     public void Pause(bool pause=false)
     {
-        pauseButton.SetActive(true);
         if(Input.GetKey(KeyCode.Escape) && pause==false)
         {
             Time.timeScale = 0;
