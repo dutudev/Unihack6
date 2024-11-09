@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Structure[] structures;
     public BlockStructure[] currentBlock;
     public List<BlockStructure> placedblocks = new List<BlockStructure>();
+    public GameObject[] PrefabsObjects;
+
+    public GameObject currentObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        CreateStructure();
     }
 
     // Update is called once per frame
@@ -34,7 +39,24 @@ public class GameManager : MonoBehaviour
 
     void CreateStructure()
     {
-        
+        for (int i = 0; i < structures[0].blocks.Length; i++)
+        {
+            switch (structures[0].blocks[i].type)
+            {
+                case Type.cube :
+                    currentObj = Instantiate(PrefabsObjects[0], structures[0].blocks[i].position, Quaternion.identity);
+                    break;
+                case Type.cilinder :
+                    currentObj = Instantiate(PrefabsObjects[1], structures[0].blocks[i].position, Quaternion.identity);
+                    break;
+                case Type.pyramid :
+                    currentObj = Instantiate(PrefabsObjects[2], structures[0].blocks[i].position, Quaternion.identity);
+                    break;
+            }
+
+            currentObj.tag = "Untagged";
+            currentObj.name = "TEMP";
+        }
     }
 
     

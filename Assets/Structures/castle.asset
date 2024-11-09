@@ -135,3 +135,5 @@ MonoBehaviour:
     type: 0
   - position: {x: -3, y: 3, z: -1}
     type: 0
+  - position: {x: 1, y: 1, z: -3}
+    type: 0
