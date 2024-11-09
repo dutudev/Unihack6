@@ -15,7 +15,7 @@ public class BuildSystem : MonoBehaviour
     public Material defaultMaterial, redMaterial;
     public Type currnentShape = Type.cube;
     public Image shapeImage;
-    public Sprite cubeSprite, pyramideSprite, cylinderSprite;
+    public Sprite cubeSprite, pyramideSprite, cylinderSprite, binSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -165,6 +165,33 @@ public class BuildSystem : MonoBehaviour
             if (PreviousRemoveGameObject != null)
             {
                 PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+            }
+            if (shapeImage.sprite != binSprite && removeMode)
+            {
+                LeanTween.cancelAll();
+                shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                shapeImage.sprite = binSprite;
+                LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                    .setEaseOutExpo();
+            }
+            else
+            {
+                LeanTween.cancelAll();
+                shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                switch(currnentShape)
+                {
+                    case Type.cube:
+                        shapeImage.sprite = cubeSprite;
+                        break;
+                    case Type.cilinder:
+                        shapeImage.sprite = cylinderSprite;
+                        break;
+                    case Type.pyramid:
+                        shapeImage.sprite = pyramideSprite;
+                        break;
+                }
+                LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                    .setEaseOutExpo();
             }
         }
         
