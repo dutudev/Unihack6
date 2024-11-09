@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildSystem : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BuildSystem : MonoBehaviour
     public bool removeMode;
     public Material defaultMaterial, redMaterial;
     public Type currnentShape = Type.cube;
+    public Image shapeImage;
+    public Sprite cubeSprite, pyramideSprite, cylinderSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,21 +70,32 @@ public class BuildSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && buildCooldown <= 0f && !removeMode)
         {
+            LeanTween.cancelAll();
             buildCooldown = 0.25f;
             var block = gameObject;
+            shapeImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
             switch (currnentShape)
             {
                 case Type.cube:
                     block = Instantiate(buildGameObject[0], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                     block.GetComponent<Block>().block.type = Type.cube;
+                    shapeImage.sprite = cubeSprite;
+                    LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                        .setEaseOutExpo();
                     break;
                 case Type.cilinder: 
                     block = Instantiate(buildGameObject[1], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                     block.GetComponent<Block>().block.type = Type.cilinder;
+                    shapeImage.sprite = cylinderSprite;
+                    LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                        .setEaseOutExpo();
                     break;
                 case Type.pyramid:
                      block = Instantiate(buildGameObject[2], buildPlaceholder.GetComponent<Transform>().position, Quaternion.identity);
                      block.GetComponent<Block>().block.type = Type.pyramid;
+                     shapeImage.sprite = pyramideSprite;
+                     LeanTween.scale(shapeImage.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f)
+                         .setEaseOutExpo();
                      break;
             }
             

@@ -1975,6 +1975,10 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   redMaterial: {fileID: 2100000, guid: 39b808fab7acaea4597f41ddbab0afba, type: 2}
   currnentShape: 0
+  shapeImage: {fileID: 0}
+  cubeSprite: {fileID: 21300000, guid: 5257464b98c1ab74f96d229a42b910af, type: 3}
+  pyramideSprite: {fileID: 21300000, guid: c626db97e4643ea468b84835fd847e69, type: 3}
+  cylinderSprite: {fileID: 21300000, guid: 36c6e55f3964c084cb2b5257e83af2df, type: 3}
 --- !u!81 &410799872
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3263,7 +3267,7 @@ GameObject:
   - component: {fileID: 738601270}
   - component: {fileID: 738601269}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3279,14 +3283,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1656878406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0028381348, y: -0.0028381348}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738601269
 MonoBehaviour:
@@ -7731,7 +7735,7 @@ GameObject:
   - component: {fileID: 1656878408}
   - component: {fileID: 1656878407}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
