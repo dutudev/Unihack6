@@ -77,6 +77,5 @@ public class Timer : MonoBehaviour
             Time.timeScale = 1;
             canvas.SetActive(false);
         }
-        Debug.Log(pause);
     }
 }
