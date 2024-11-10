@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TimerManager : MonoBehaviour
 {
     
     public int gameState = 2; // 0 - watch, 1 - build, 2 - pause
-
+    public TMP_Text timerText;
     public float timeLeft= 5;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class TimerManager : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
+        timerText.text = ((int)timeLeft).ToString();
         if (timeLeft <= 0)
         {
             NextState();
@@ -29,7 +31,7 @@ public class TimerManager : MonoBehaviour
         if (timeLeft <= 0 && gameState >= 2)
         {
             gameState = 0;
-            timeLeft = 20f;
+            timeLeft = 10f;
         }
         else
         {
@@ -38,16 +40,17 @@ public class TimerManager : MonoBehaviour
                 case 0:
                     gameState = 1;
                     timeLeft = 50f;
-                    
+                    GameManager.Instance.canBuild = true;
                     break;
                 case 1:
                     gameState = 2;
                     timeLeft = 8f;
+                    GameManager.Instance.canBuild = false;
                     break;
                 case 2:
                     gameState = 0;
-                    timeLeft = 20f;
-                    
+                    timeLeft = 10f;
+                    GameManager.Instance.canBuild = false;
                     break;
                     
                 

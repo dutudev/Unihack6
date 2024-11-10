@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public List<BlockStructure> placedblocks = new List<BlockStructure>();
     public GameObject[] PrefabsObjects;
     public GameObject currentObj;
-    
+
+    public bool canBuild;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
                 Destroy(obj);
             }
             GameObject[] buildedPlr = GameObject.FindGameObjectsWithTag("Placed");
+            placedblocks.Clear();
             foreach (var obj in buildedPlr)
             {
                 Destroy(obj);
@@ -123,7 +125,17 @@ public class GameManager : MonoBehaviour
         return adjustedScore;
     }
 
-
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
+    public void PrevScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+    }
+    public void ReloadCurrentScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 /*
     public float Check()
     {

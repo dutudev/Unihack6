@@ -38,7 +38,7 @@ public class BuildSystem : MonoBehaviour
             }
             else
             {
-                if (hit.collider.gameObject.CompareTag("Placed"))
+                if (hit.collider.gameObject.CompareTag("Placed") && GameManager.Instance.canBuild)
                 { 
                     
                     
@@ -85,7 +85,7 @@ public class BuildSystem : MonoBehaviour
         //replace
         placeholderPosition.y = Mathf.Ceil(cursorPosition.y + 0.1f);
         placeholderPosition.z = Mathf.Round(cursorPosition.z);
-        if (!removeMode)
+        if (!removeMode && GameManager.Instance.canBuild)
         {
             buildPlaceholder.SetActive(true);
             buildPlaceholder.GetComponent<Transform>().position = placeholderPosition;
@@ -95,7 +95,7 @@ public class BuildSystem : MonoBehaviour
             buildPlaceholder.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && buildCooldown <= 0f && !removeMode)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && buildCooldown <= 0f && !removeMode && GameManager.Instance.canBuild)
         {
             
             buildCooldown = 0.25f;
@@ -128,7 +128,7 @@ public class BuildSystem : MonoBehaviour
 
         if (PreviousRemoveGameObject != null)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && removeMode && PreviousRemoveGameObject.name == "CurrentRemove" && removeCooldown <= 0)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && removeMode && PreviousRemoveGameObject.name == "CurrentRemove" && removeCooldown <= 0 && GameManager.Instance.canBuild)
             {
                 removeCooldown = .2f;
                 Debug.Log(PreviousRemoveGameObject.GetComponent<Block>().block.type);
