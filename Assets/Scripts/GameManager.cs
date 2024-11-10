@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
         }
         int outFrame = required - placed;
         float percentage = (float)inFrame / placed * 100f;
+        Debug.Log(percentage);
         return percentage;
     } 
 }
