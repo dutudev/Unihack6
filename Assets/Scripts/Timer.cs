@@ -10,7 +10,8 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] float newFontSize = 75f;
     [SerializeField] TextMeshProUGUI waitingText;
-    [SerializeField] GameObject canvas;
+    [SerializeField] GameObject pausePanel;
+    [SerializeField] private GameObject gameoverPanel;
 
     float currentTime = 0f;
     float startingTime = 30f;
@@ -21,7 +22,9 @@ public class Timer : MonoBehaviour
    void Start()
     {
         currentTime = startingTime;
-        canvas.SetActive(false);
+        pausePanel.SetActive(false);
+        gameoverPanel.SetActive(false);
+
         Time.timeScale = 1;
     }
 
@@ -69,13 +72,13 @@ public class Timer : MonoBehaviour
         if (pause == false)
         {
             Time.timeScale = 0;
-            canvas.SetActive(true);
+            pausePanel.SetActive(true);
             pause = true;
         }
         else //if ( pause == true)
         {
             Time.timeScale = 1;
-            canvas.SetActive(false);
+            pausePanel.SetActive(false);
         }
     }
 }
