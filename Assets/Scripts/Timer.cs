@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -11,27 +12,28 @@ public class Timer : MonoBehaviour
     [SerializeField] float newFontSize = 75f;
     [SerializeField] TextMeshProUGUI waitingText;
     [SerializeField] GameObject pausePanel;
-    [SerializeField] private GameObject gameoverPanel;
-
+  //  [SerializeField] private GameObject gameoverPanel;
+    public bool pause=false;
+/*
     float currentTime = 0f;
     float startingTime = 30f;
-    public bool pause=false;
     float waitingTime = 10f;
-
+*/
 
    void Start()
     {
-        currentTime = startingTime;
         pausePanel.SetActive(false);
+        /*
+        currentTime = startingTime;
         gameoverPanel.SetActive(false);
-
+        */
         Time.timeScale = 1;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        { PauseTime(pause); }
+        { PauseTime(pause); }/*
         if (pause == false)
         {
             if (currentTime < 0)
@@ -47,10 +49,10 @@ public class Timer : MonoBehaviour
             {
                 countdownText.color = Color.red;
                 countdownText.fontSize = newFontSize;
-            }
-        }
+            }*/
+        
     }
-
+/*
     void LookingTime()
     {
         if (pause == false)
@@ -65,7 +67,7 @@ public class Timer : MonoBehaviour
                 waitingTime -= Time.deltaTime;
             }
         }
-    }
+    }*/
 
     public void PauseTime( bool pause)
     {
@@ -80,5 +82,10 @@ public class Timer : MonoBehaviour
             Time.timeScale = 1;
             pausePanel.SetActive(false);
         }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
