@@ -12,7 +12,7 @@ public class BuildSystem : MonoBehaviour
     public GameObject buildPlaceholder, PreviousRemoveGameObject;
     public GameObject[] buildGameObject, PlaceholderGameObject;
     public bool removeMode;
-    public Material defaultMaterial, redMaterial;
+    public Material defaultMaterial, redMaterial, cubeMaterial, cilinderMaterial, pyramidMaterial;
     public Type currnentShape = Type.cube;
     public Image shapeImage;
 
@@ -29,6 +29,7 @@ public class BuildSystem : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+
         if (Physics.Raycast(ray, out hit))
         {
             if (!removeMode)
@@ -39,17 +40,42 @@ public class BuildSystem : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Placed"))
                 { 
+                    
+                    
                     hit.collider.gameObject.GetComponent<MeshRenderer>().material = redMaterial;
                     hit.collider.gameObject.name = "CurrentRemove";
                     if (hit.collider.gameObject != PreviousRemoveGameObject && PreviousRemoveGameObject != null)
                     {
-                        PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                        ///PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = previousMaterial;
+                        switch (hit.collider.gameObject.GetComponent<Block>().block.type)
+                        {
+                            case Type.cube:
+                                PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cubeMaterial;
+                                break;
+                            case Type.cilinder:
+                                PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cilinderMaterial;
+                                break;
+                            case Type.pyramid:
+                                PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = pyramidMaterial;
+                                break;
+                        }
                         PreviousRemoveGameObject.name = "cube(Clone)";
                     }
                     PreviousRemoveGameObject = hit.collider.gameObject;
                 }else if (PreviousRemoveGameObject != null)
                 {
-                    PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                    switch (hit.collider.gameObject.GetComponent<Block>().block.type)
+                    {
+                        case Type.cube:
+                            PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cubeMaterial;
+                            break;
+                        case Type.cilinder:
+                            PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cilinderMaterial;
+                            break;
+                        case Type.pyramid:
+                            PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = pyramidMaterial;
+                            break;
+                    }
                     PreviousRemoveGameObject.name = "cube(Clone)";
                 }
             }

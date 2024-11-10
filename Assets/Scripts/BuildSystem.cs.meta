@@ -3,7 +3,20 @@ guid: 24d7afda34bbdca45a40bbb1a17352b2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - camera: {instanceID: 0}
+  - buildPlaceholder: {instanceID: 0}
+  - PreviousRemoveGameObject: {instanceID: 0}
+  - defaultMaterial: {instanceID: 0}
+  - redMaterial: {instanceID: 0}
+  - cubeMaterial: {fileID: 2100000, guid: 6753a4baabe45c64b98e9c4665b34ab2, type: 2}
+  - cilinderMaterial: {fileID: 2100000, guid: c54da914fc680c740a2ea4b9310fec67, type: 2}
+  - pyramidMaterial: {fileID: 2100000, guid: 851687a4615e29147bb307c88341936b, type: 2}
+  - shapeImage: {instanceID: 0}
+  - cubeSprite: {instanceID: 0}
+  - pyramideSprite: {instanceID: 0}
+  - cylinderSprite: {instanceID: 0}
+  - binSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
