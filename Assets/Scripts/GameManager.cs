@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public List<BlockStructure> placedblocks = new List<BlockStructure>();
     public GameObject[] PrefabsObjects;
     public GameObject currentObj;
-    
+
+    public bool canBuild;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
                 Destroy(obj);
             }
             GameObject[] buildedPlr = GameObject.FindGameObjectsWithTag("Placed");
+            placedblocks.Clear();
             foreach (var obj in buildedPlr)
             {
                 Destroy(obj);

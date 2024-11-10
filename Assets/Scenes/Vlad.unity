@@ -5726,6 +5726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 2
+  timerText: {fileID: 1382308729}
   timeLeft: 5
 --- !u!1 &1264319513
 GameObject:
@@ -5982,6 +5983,7 @@ MonoBehaviour:
   - {fileID: 3708153472658638324, guid: e19090734bfce564e8b852a2204b58f7, type: 3}
   - {fileID: 9212978468656179615, guid: 27ccc9fd94f9a914181dedfa6c7d0a31, type: 3}
   currentObj: {fileID: 0}
+  canBuild: 0
 --- !u!4 &1290043735
 Transform:
   m_ObjectHideFlags: 0
