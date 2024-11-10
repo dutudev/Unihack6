@@ -68,6 +68,7 @@ public class TimerManager : MonoBehaviour
                 GameManager.Instance.CleanBoard(false);
                 break;
             case 2 :GameManager.Instance.CleanBoard(true);
+                Debug.Log(GameManager.Instance.Check());
                 break;
                 
                 
