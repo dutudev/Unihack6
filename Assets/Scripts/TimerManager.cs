@@ -7,12 +7,15 @@ public class TimerManager : MonoBehaviour
 {
     
     public int gameState = 2; // 0 - watch, 1 - build, 2 - pause
-    public TMP_Text timerText;
+    public TMP_Text timerText, percentText;
     public float timeLeft= 5;
+    public GameObject percentPanel;
     // Start is called before the first frame update
     void Start()
     {
       //  UpdateState();
+      //SpercentPanel.GetComponent<RectTransform>().localPosition = new Vector3(0, -655, 0);
+      
     }
 
     // Update is called once per frame
@@ -71,7 +74,9 @@ public class TimerManager : MonoBehaviour
                 GameManager.Instance.CleanBoard(false);
                 break;
             case 2 :GameManager.Instance.CleanBoard(true);
-                Debug.Log(GameManager.Instance.Check());
+                LeanTween.move(percentPanel.GetComponent<RectTransform>(), new Vector3(0, 40, 0), 1f).setEaseOutExpo();
+                LeanTween.move(percentPanel.GetComponent<RectTransform>(), new Vector3(0, -65, 0), 1f).setEaseInExpo().setDelay(5f);
+                percentText.text = "You got " + ((int)GameManager.Instance.Check()).ToString() + "%!";
                 break;
                 
                 
