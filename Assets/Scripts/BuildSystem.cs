@@ -75,6 +75,9 @@ public class BuildSystem : MonoBehaviour
                         case Type.pyramid:
                             PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = pyramidMaterial;
                             break;
+                        default:
+                            Debug.Log("aa");
+                            break;
                     }
                     PreviousRemoveGameObject.name = "cube(Clone)";
                 }
