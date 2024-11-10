@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 11519789}
   - component: {fileID: 11519788}
   - component: {fileID: 11519787}
+  - component: {fileID: 11519791}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -623,6 +624,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &11519791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11519786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ecd6906524fc74f8ba55f98ce5be3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 2
+  timeLeft: 5
 --- !u!1 &48823646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2563,7 @@ MonoBehaviour:
   camera: {fileID: 568570869}
   buildCooldown: 0
   removeCooldown: 0
+  stateCooldown: 0
   buildPlaceholder: {fileID: 553934738}
   PreviousRemoveGameObject: {fileID: 0}
   buildGameObject:
@@ -2562,6 +2578,11 @@ MonoBehaviour:
   defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   redMaterial: {fileID: 2100000, guid: 39b808fab7acaea4597f41ddbab0afba, type: 2}
   currnentShape: 0
+  shapeImage: {fileID: 0}
+  cubeSprite: {fileID: 0}
+  pyramideSprite: {fileID: 0}
+  cylinderSprite: {fileID: 0}
+  binSprite: {fileID: 0}
 --- !u!81 &568570868
 AudioListener:
   m_ObjectHideFlags: 0
