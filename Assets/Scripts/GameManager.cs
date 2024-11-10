@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public BlockStructure[] currentBlock;
     public List<BlockStructure> placedblocks = new List<BlockStructure>();
     public GameObject[] PrefabsObjects;
-
     public GameObject currentObj;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        CreateStructure();
+        //CreateStructure();
     }
 
     // Update is called once per frame
@@ -37,29 +37,58 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void CreateStructure()
+    public void PickStructureAndBuild()
     {
-        for (int i = 0; i < structures[0].blocks.Length; i++)
+        CreateStructure(Random.Range(0, structures.Length));
+    }
+    public void CreateStructure(int build)
+    {
+        for (int i = 0; i < structures[build].blocks.Length; i++)
         {
-            switch (structures[0].blocks[i].type)
+            switch (structures[build].blocks[i].type)
             {
                 case Type.cube :
-                    currentObj = Instantiate(PrefabsObjects[0], structures[0].blocks[i].position, Quaternion.identity);
+                    currentObj = Instantiate(PrefabsObjects[0], structures[build].blocks[i].position, Quaternion.identity);
                     break;
                 case Type.cilinder :
-                    currentObj = Instantiate(PrefabsObjects[1], structures[0].blocks[i].position, Quaternion.identity);
+                    currentObj = Instantiate(PrefabsObjects[1], structures[build].blocks[i].position, Quaternion.identity);
                     break;
                 case Type.pyramid :
-                    currentObj = Instantiate(PrefabsObjects[2], structures[0].blocks[i].position, Quaternion.identity);
+                    currentObj = Instantiate(PrefabsObjects[2], structures[build].blocks[i].position, Quaternion.identity);
                     break;
             }
 
-            currentObj.tag = "Untagged";
+            currentObj.tag = "TempBuild";
             currentObj.name = "TEMP";
         }
     }
 
-    
+    public void CleanBoard(bool cleanOnlyTemp)
+    {
+        if (cleanOnlyTemp)
+        {
+            GameObject[] buildedTemp = GameObject.FindGameObjectsWithTag("TempBuild");
+            foreach (var obj in buildedTemp)
+            {
+                Destroy(obj);
+            }
+        }
+        else
+        {
+            GameObject[] buildedTemp = GameObject.FindGameObjectsWithTag("TempBuild");
+            foreach (var obj in buildedTemp)
+            {
+                Destroy(obj);
+            }
+            GameObject[] buildedPlr = GameObject.FindGameObjectsWithTag("Placed");
+            foreach (var obj in buildedPlr)
+            {
+                Destroy(obj);
+            }
+        }
+        
+        
+    }
 
    /* void Check()
     {

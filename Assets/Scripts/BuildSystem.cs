@@ -15,8 +15,8 @@ public class BuildSystem : MonoBehaviour
     public Material defaultMaterial, redMaterial;
     public Type currnentShape = Type.cube;
     public Image shapeImage;
+
     public Sprite cubeSprite, pyramideSprite, cylinderSprite, binSprite;
-    public int gameState; // 0 - watch, 1 - build, 2 - pause
     // Start is called before the first frame update
     void Start()
     {

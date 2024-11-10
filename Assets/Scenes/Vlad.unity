@@ -1981,7 +1981,6 @@ MonoBehaviour:
   pyramideSprite: {fileID: 21300000, guid: c626db97e4643ea468b84835fd847e69, type: 3}
   cylinderSprite: {fileID: 21300000, guid: 36c6e55f3964c084cb2b5257e83af2df, type: 3}
   binSprite: {fileID: 21300000, guid: 84955b64d188f4548b112388de33f9cd, type: 3}
-  gameState: 0
 --- !u!81 &410799872
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5726,6 +5725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ecd6906524fc74f8ba55f98ce5be3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 2
+  timeLeft: 5
 --- !u!1 &1264319513
 GameObject:
   m_ObjectHideFlags: 0
