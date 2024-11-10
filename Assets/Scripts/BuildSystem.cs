@@ -23,7 +23,7 @@ public class BuildSystem : MonoBehaviour
         camera = Camera.main;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
