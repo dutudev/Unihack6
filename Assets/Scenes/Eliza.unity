@@ -1346,8 +1346,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998046193}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1998046195}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
         m_MethodName: PrevScene
         m_Mode: 1
         m_Arguments:
@@ -2806,7 +2806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &564999619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4589,7 +4589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &927237786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6338,8 +6338,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998046193}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1998046195}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
         m_MethodName: PrevScene
         m_Mode: 1
         m_Arguments:
@@ -8382,8 +8382,8 @@ Camera:
   m_GameObject: {fileID: 1558543629}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.3019608, g: 0.5686275, b: 0.85882354, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -10885,8 +10885,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998046193}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1998046195}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
         m_MethodName: ReloadCurrentScene
         m_Mode: 1
         m_Arguments:
@@ -11300,6 +11300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998046194}
   - component: {fileID: 1998046193}
+  - component: {fileID: 1998046195}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11329,6 +11330,7 @@ MonoBehaviour:
   - {fileID: 3708153472658638324, guid: e19090734bfce564e8b852a2204b58f7, type: 3}
   - {fileID: 9212978468656179615, guid: 27ccc9fd94f9a914181dedfa6c7d0a31, type: 3}
   currentObj: {fileID: 0}
+  canBuild: 0
 --- !u!4 &1998046194
 Transform:
   m_ObjectHideFlags: 0
@@ -11344,6 +11346,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998046195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998046192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac08bf09a0ecc93488587485c89e9f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008307208
 GameObject:
   m_ObjectHideFlags: 0
