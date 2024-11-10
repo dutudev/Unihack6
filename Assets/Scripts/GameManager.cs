@@ -90,15 +90,15 @@ public class GameManager : MonoBehaviour
         
     }
 
-   /* void Check()
+    float Check()
     {
         int i, j;
         int inFrame = 0, required = currentStructure.blocks.Length, placed = currentBlock.Length;
         for (i = 0; i < required; i++)
         {
-            for (j = 0; j < placed; j++)
+            for (j = 0; j < placed; j++) 
             {
-                if (currentBlock[j].position == currentStructure.blocks[i].position)
+                if (currentStructure.blocks[i].position == currentBlock[j].position && currentStructure.blocks[i].type == currentBlock[j].type)
                 {
                     inFrame++;
                     j = placed;
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             }
         }
         int outFrame = required - placed;
-    }*/
-
- 
+        float percentage = (float)inFrame / placed * 100f;
+        return percentage;
+    } 
 }
