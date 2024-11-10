@@ -89,9 +89,7 @@ public class GameManager : MonoBehaviour
             {
                 Destroy(obj);
             }
-        }
-        
-        
+        }        
     }
     
     public float Check()
