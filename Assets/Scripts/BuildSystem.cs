@@ -47,7 +47,7 @@ public class BuildSystem : MonoBehaviour
                     if (hit.collider.gameObject != PreviousRemoveGameObject && PreviousRemoveGameObject != null)
                     {
                         ///PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = previousMaterial;
-                        switch (hit.collider.gameObject.GetComponent<Block>().block.type)
+                        switch (PreviousRemoveGameObject.GetComponent<Block>().block.type)
                         {
                             case Type.cube:
                                 PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cubeMaterial;
@@ -64,7 +64,7 @@ public class BuildSystem : MonoBehaviour
                     PreviousRemoveGameObject = hit.collider.gameObject;
                 }else if (PreviousRemoveGameObject != null)
                 {
-                    switch (hit.collider.gameObject.GetComponent<Block>().block.type)
+                    switch (PreviousRemoveGameObject.GetComponent<Block>().block.type)
                     {
                         case Type.cube:
                             PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cubeMaterial;
@@ -191,7 +191,18 @@ public class BuildSystem : MonoBehaviour
             removeMode = !removeMode;
             if (PreviousRemoveGameObject != null)
             {
-                PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+                switch (PreviousRemoveGameObject.GetComponent<Block>().block.type)
+                {
+                    case Type.cube:
+                        PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cubeMaterial;
+                        break;
+                    case Type.cilinder:
+                        PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = cilinderMaterial;
+                        break;
+                    case Type.pyramid:
+                        PreviousRemoveGameObject.GetComponent<MeshRenderer>().material = pyramidMaterial;
+                        break;
+                }
             }
             if (shapeImage.sprite != binSprite && removeMode)
             {

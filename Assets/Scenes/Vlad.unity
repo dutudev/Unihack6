@@ -1975,6 +1975,9 @@ MonoBehaviour:
   removeMode: 0
   defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   redMaterial: {fileID: 2100000, guid: 39b808fab7acaea4597f41ddbab0afba, type: 2}
+  cubeMaterial: {fileID: 2100000, guid: 6753a4baabe45c64b98e9c4665b34ab2, type: 2}
+  cilinderMaterial: {fileID: 2100000, guid: c54da914fc680c740a2ea4b9310fec67, type: 2}
+  pyramidMaterial: {fileID: 2100000, guid: 851687a4615e29147bb307c88341936b, type: 2}
   currnentShape: 0
   shapeImage: {fileID: 738601269}
   cubeSprite: {fileID: 21300000, guid: 5257464b98c1ab74f96d229a42b910af, type: 3}
