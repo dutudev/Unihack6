@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         // Adjust the match score based on how complete the structure is
         float adjustedScore = matchScore * completionRatio;
 
-        return matchScore;
+        return adjustedScore;
     }
 
 

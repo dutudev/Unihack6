@@ -1999,7 +1999,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
+  m_BackGroundColor: {r: 0.3037113, g: 0.56983525, b: 0.8584906, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3057,7 +3057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.29411766}
+  m_Color: {r: 0.05490196, g: 0.6313726, b: 0.101960786, a: 0.5176471}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5969,6 +5969,12 @@ MonoBehaviour:
   currentStructure: {fileID: 0}
   structures:
   - {fileID: 11400000, guid: 4c6cde0631d2d864d97020fe9ba5e7e3, type: 2}
+  - {fileID: 11400000, guid: 223f26e6c68514543bfd57b06c094d02, type: 2}
+  - {fileID: 11400000, guid: 0bdc7c8b3ad0cc54da44dfe9b31c61c7, type: 2}
+  - {fileID: 11400000, guid: 60d2a24b4b1fac54e831aabb7524f49e, type: 2}
+  - {fileID: 11400000, guid: 1eb84417aab038b4c8b40b083ac0f1c1, type: 2}
+  - {fileID: 11400000, guid: 2523c34dfbc14a140913f4be4c9eb3e9, type: 2}
+  - {fileID: 11400000, guid: 8d9836acebdac184ba269dad06ad6934, type: 2}
   currentBlock: []
   placedblocks: []
   PrefabsObjects:
@@ -8002,7 +8008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.29411766}
+  m_Color: {r: 0.056648254, g: 0.6320754, b: 0.10340168, a: 0.5176471}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

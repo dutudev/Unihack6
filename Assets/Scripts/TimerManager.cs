@@ -37,7 +37,7 @@ public class TimerManager : MonoBehaviour
             {
                 case 0:
                     gameState = 1;
-                    timeLeft = 30f;
+                    timeLeft = 50f;
                     
                     break;
                 case 1:
@@ -61,7 +61,7 @@ public class TimerManager : MonoBehaviour
         switch (gameState)
         {
             case 0 :
-                GameManager.Instance.CleanBoard(true);
+                GameManager.Instance.CleanBoard(false);
                 GameManager.Instance.PickStructureAndBuild();
                 break;
             case 1 :
